@@ -9,7 +9,7 @@ int test_d_1(void) {
 }
 
 int test_d_42(void) {
-    return (ft_printf(" %d ", 52));
+    return (ft_printf(" %d ", 42));
 }
 
 int test_d_2147483647(void) {
@@ -17,7 +17,7 @@ int test_d_2147483647(void) {
 }
 
 int test_d_neg_1(void) {
-    return (ft_printf(" %d ", -12));
+    return (ft_printf(" %d ", -1));
 }
 
 int test_d_neg_42(void) {

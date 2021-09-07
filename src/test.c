@@ -102,13 +102,13 @@ test_print(
                 fwrite(testErr, strlen(testErr), 1, fs_log);
                 fwrite(outputErr, strlen(outputErr), 1, fs_log);
                 fflush(fs_log);
-                if (outputCompare == 1 && returnCompare == 1) {
+                if (outputCompare != 0 && returnCompare != 0) {
                     printf(FG_RED"%d.KO BOTH  "RESET, test);
                     fflush(stdout);
-                } else if (outputCompare == 1) {
+                } else if (outputCompare != 0) {
                     printf(FG_RED"%d.KO OUTPUT  "RESET, test);
                     fflush(stdout);
-                } else if (returnCompare == 1) {
+                } else if (returnCompare != 0) {
                     printf(FG_RED"%d.KO RETURN VALUE  "RESET, test);
                     fflush(stdout);
                 }

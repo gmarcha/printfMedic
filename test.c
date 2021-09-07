@@ -2,6 +2,5 @@
 
 int main(void) {
 
-    printf("%d\n", printf("%c", 0));
-    return (0);
+    static int b = 0;
 }

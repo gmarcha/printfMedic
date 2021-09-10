@@ -6,7 +6,8 @@ test_print(
     const char *expectedOutput,
     const int expectedReturnValue,
     int (*test_ptr)(),
-    char *input
+    char *input,
+    char *subset                                // Pay attention to this, young coder.
 ) {
 
     pid_t           pid;
@@ -86,7 +87,8 @@ test_print(
                 char testErr[256] = {0};
                 sprintf(
                     testErr,
-                    "\n\n--> Test %d\n    Input: ft_printf(%s)\n    Expected output:  [%s]\n    Expected return:  %d\n",
+                    "\n\n--> %s: %d\n    Input: ft_printf(%s)\n    Expected output:  [%s]\n    Expected return:  %d\n",
+                    subset,
                     test,
                     input,
                     expectedOutput,
@@ -116,6 +118,11 @@ test_print(
                 printf(FG_GREEN"%d.OK  "RESET, test);
                 fflush(stdout);
             }
+
+            fclose(fs_read_output);
+            fclose(fs_read_return);
+            fclose(fs_read_error);
+            fclose(fs_log);
         }
     }
 }

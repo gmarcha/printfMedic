@@ -1,8 +1,8 @@
 #include "main.h"
 
-#ifdef DEBUG
-    int (*ft_printf)(const char *, ...) = printf;
-#endif
+//#ifdef DEBUG
+//    int (*ft_printf)(const char *, ...) = printf;
+//#endif
 
 int main(int ac, char *av[]) {
 

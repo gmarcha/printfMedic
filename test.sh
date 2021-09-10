@@ -112,12 +112,16 @@ TESTS=( tests/mandatory/c_tests.c \
         tests/bonus/width_precision_dash_hash/x_maj_width_precision_dash_hash_tests.c
 )
 
+printf "\033[95m"
+echo '========================================================================================'
 echo '██████╗ ██████╗ ██╗███╗   ██╗████████╗███████╗    ███╗   ███╗███████╗██████╗ ██╗ ██████╗'
 echo '██╔══██╗██╔══██╗██║████╗  ██║╚══██╔══╝██╔════╝    ████╗ ████║██╔════╝██╔══██╗██║██╔════╝'
 echo '██████╔╝██████╔╝██║██╔██╗ ██║   ██║   █████╗      ██╔████╔██║█████╗  ██║  ██║██║██║     '
 echo '██╔═══╝ ██╔══██╗██║██║╚██╗██║   ██║   ██╔══╝      ██║╚██╔╝██║██╔══╝  ██║  ██║██║██║     '
 echo '██║     ██║  ██║██║██║ ╚████║   ██║   ██║         ██║ ╚═╝ ██║███████╗██████╔╝██║╚██████╗'
 echo '╚═╝     ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝         ╚═╝     ╚═╝╚══════╝╚═════╝ ╚═╝ ╚═════╝'
+echo '========================================================================================'
+printf "\033[0m"
 
 ARG1=""
 ARG2="-1"
@@ -151,7 +155,14 @@ if ! [[ -z $2 ]]; then
     ARG2=$2
 fi
 
-clang -Wall -Wextra -Werror -fsanitize=address -D DEBUG -I ./inc ${TESTS[@]} src/test.c src/main.c -o tester
+make -C ../
+if [ $? -ne 0 ]; then
+    rm -rf tmp/
+    exit 1
+fi
+
+make
+# clang -Wall -Wextra -Werror -fsanitize=address -D DEBUG -I ./inc ${TESTS[@]} src/test.c src/main.c -o tester
 if [ $? -ne 0 ]; then
     rm -rf tmp/
     exit 1

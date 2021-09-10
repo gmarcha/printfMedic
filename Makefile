@@ -96,7 +96,7 @@ $(NAME):	$(OBJ)
 			@$(CC) $(CFLAGS) -fsanitize=address -o $(NAME) $(OBJ) $(LFT)
 
 %.o:		%.c
-			@$(CC) $(CFLAGS) -I inc/ -o $@ -c $< $(LFT)
+			@$(CC) $(CFLAGS) -I inc/ -I ../ -o $@ -c $<
 
 clean:
 			@rm -rf $(OBJ)

@@ -16,9 +16,9 @@
 # define PROGRAM_NAME                   "printMedic"
 # define ferror(funName, errNum)        fprintf(stderr, "%s: %s failed: %s\n", PROGRAM_NAME, funName, strerror(errNum)); exit(1);
 
-# ifdef DEBUG
-    extern int (*ft_printf)(const char *, ...);
-# endif
+//# ifdef DEBUG
+//    extern int (*ft_printf)(const char *, ...);
+//# endif
 
 void 
 test_print(

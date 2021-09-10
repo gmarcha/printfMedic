@@ -1,4 +1,31 @@
-INPUT=(a m b c s p d i u x X %)
+INPUT=(	
+		a m b c s p d i u x X % \
+		c_width s_width p_width d_width i_width u_width x_width X_width \
+		c_width_dash s_width_dash p_width_dash d_width_dash i_width_dash u_width_dash x_width_dash X_width_dash \
+		d_width_zero i_width_zero u_width_zero x_width_zero X_width_zero \
+		s_precision d_precision i_precision u_precision x_precision X_precision \
+		s_width_precision d_width_precision i_width_precision u_width_precision x_width_precision X_width_precision \
+		s_width_precision_dash d_width_precision_dash i_width_precision_dash u_width_precision_dash x_width_precision_dash X_width_precision_dash \
+		d_space i_space \
+		d_width_space i_width_space \
+		d_width_dash_space i_width_dash_space \
+		d_precision_space i_precision_space \
+		d_width_precision_space i_width_precision_space \
+		d_width_precision_dash_space i_width_precision_dash_space \
+		d_plus i_plus \
+		d_width_plus i_width_plus \
+		d_width_dash_plus i_width_dash_plus \
+		d_precision_plus i_precision_plus \
+		d_width_precision_plus i_width_precision_plus \
+		d_width_precision_dash_plus i_width_precision_dash_plus \
+		x_hash X_hash \
+		x_width_hash X_width_hash \
+		x_width_dash_hash X_width_dash_hash \
+		x_precision_hash X_precision_hash \
+		x_width_precision_hash X_width_precision_hash \
+		x_width_precision_dash_hash X_width_precision_dash_hash
+)
+
 TESTS=( tests/mandatory/c_tests.c \
         tests/mandatory/s_tests.c \
         tests/mandatory/p_tests.c \
@@ -85,6 +112,13 @@ TESTS=( tests/mandatory/c_tests.c \
         tests/bonus/width_precision_dash_hash/x_maj_width_precision_dash_hash_tests.c
 )
 
+echo '██████╗ ██████╗ ██╗███╗   ██╗████████╗███████╗    ███╗   ███╗███████╗██████╗ ██╗ ██████╗'
+echo '██╔══██╗██╔══██╗██║████╗  ██║╚══██╔══╝██╔════╝    ████╗ ████║██╔════╝██╔══██╗██║██╔════╝'
+echo '██████╔╝██████╔╝██║██╔██╗ ██║   ██║   █████╗      ██╔████╔██║█████╗  ██║  ██║██║██║     '
+echo '██╔═══╝ ██╔══██╗██║██║╚██╗██║   ██║   ██╔══╝      ██║╚██╔╝██║██╔══╝  ██║  ██║██║██║     '
+echo '██║     ██║  ██║██║██║ ╚████║   ██║   ██║         ██║ ╚═╝ ██║███████╗██████╔╝██║╚██████╗'
+echo '╚═╝     ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝         ╚═╝     ╚═╝╚══════╝╚═════╝ ╚═╝ ╚═════╝'
+
 ARG1=""
 ARG2="-1"
 
@@ -117,7 +151,7 @@ if ! [[ -z $2 ]]; then
     ARG2=$2
 fi
 
-make
+clang -Wall -Wextra -Werror -fsanitize=address -D DEBUG -I ./inc ${TESTS[@]} src/test.c src/main.c -o tester
 if [ $? -ne 0 ]; then
     rm -rf tmp/
     exit 1

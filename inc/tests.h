@@ -26,7 +26,8 @@ test_print(
     const char *expectedOutput,
     const int expectedReturnValue,
     int (*test_ptr)(),
-    char *input
+    char *input,
+    char *subset
 );
 
 #endif // TESTS_H

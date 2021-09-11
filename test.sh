@@ -155,6 +155,14 @@ if ! [[ -z $2 ]]; then
     ARG2=$2
 fi
 
+printf "\033[94m"
+make -C ../
+if [ $? -ne 0 ]; then
+    rm -rf tmp/
+    exit 1
+fi
+printf "\033[0m"
+
 echo "(Compiling tester...)"
 make
 # clang -Wall -Wextra -Werror -fsanitize=address -D DEBUG -I ./inc ${TESTS[@]} src/test.c src/main.c -o tester
@@ -163,14 +171,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo "(Compilation done!)"
-
-printf "\033[94m"
-make -C ../
-if [ $? -ne 0 ]; then
-    rm -rf tmp/
-    exit 1
-fi
-printf "\033[0m"
 
 ./tester $ARG1 $ARG2
 

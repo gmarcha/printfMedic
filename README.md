@@ -3,7 +3,7 @@ A complete tester for ft_printf, a 42 version of printf.
 
 # How to use it ?
 - Clone the repository in your Printf directory, go in the tester directory, and run `bash test.sh`.
-- You can launch a test subset with `bash test.sh d` for example, and you can even run a specific test in a subset with `bash test.sh d 4` for example.
+- You can launch a test subset with `bash test.sh d`, and you can even run a specific test in a subset with `bash test.sh d 4` for example.
 
 ![output](/assets/output.png)
 

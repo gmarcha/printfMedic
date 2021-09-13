@@ -7,7 +7,7 @@ test_print(
     const int expectedReturnValue,
     int (*test_ptr)(),
     char *input,
-    char *subset                                // Pay attention to this, young coder.
+    char *subset
 ) {
 
     pid_t           pid;
@@ -51,7 +51,7 @@ test_print(
             (fs_read_output = fopen("./tmp/output.tmp", "r")) == NULL ||
             (fs_read_return = fopen("./tmp/return.tmp", "r")) == NULL ||
             (fs_read_error = fopen("./tmp/error.tmp", "r")) == NULL ||
-            (fs_log = fopen("ft_printf.log", "a")) == NULL
+            (fs_log = fopen("tester.log", "a")) == NULL
         ) {
             ferror("open", errno);
         }

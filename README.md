@@ -4,6 +4,8 @@ A complete tester for ft_printf, a 42 version of printf.
 # How to use it ?
 - Clone the repository in your Printf directory, go in the tester directory, and run `bash test.sh`.
 - You can launch a test subset with `bash test.sh d`, and you can even run a specific test in a subset with `bash test.sh d 4` for example.
+- Just check the `tester.log` file to see the differences between the true printf and your ft_printf version.
+- Pay attention: this project has to be submitted on macos. There are some differences between BSD C Lib printf and GNU Lib C printf. This tester compares output with the macos printf, so the BSD Lib. You can install a virtual machine with FreeBSD for example, if you don't have an apple system.
 
 ![output](/assets/output.png)
 

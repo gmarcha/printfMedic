@@ -41,7 +41,7 @@ ARG1=""
 ARG2="-1"
 
 mkdir -p tmp/
-rm -rf ft_printf.log
+rm -rf tester.log
 
 if [[ -z $1 ]]; then
     echo "printfMedic: launch with a, m, or b; for all, mandatory, or bonus tests"

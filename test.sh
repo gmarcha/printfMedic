@@ -42,6 +42,10 @@ ARG2="-1"
 
 mkdir -p tmp/
 rm -rf tester.log
+echo 'All errors are shown here.' >> tester.log
+echo 'You can compare the expected output from the true printf, ' >> tester.log
+echo 'with the effective output from your ft_printf. ' >> tester.log
+echo 'Comparison is performed on output and return value! ' >> tester.log
 
 if [[ -z $1 ]]; then
     echo "printfMedic: launch with a, m, or b; for all, mandatory, or bonus tests"
